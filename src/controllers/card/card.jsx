@@ -1,20 +1,19 @@
 import React from "react";
-import {Card, Button} from "react-bootstrap";
+import { Card, Button, Row } from "react-bootstrap";
 
-export default function CardSpoonacular() {
+export default function CardSpoonacular({ name, image, caracteristicas }) {
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      <Row className="justify-content-center">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={image} />
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{caracteristicas}</Card.Text>
+            <Button variant="primary">View</Button>
+          </Card.Body>
+        </Card>
+      </Row>
     </>
   );
 }
