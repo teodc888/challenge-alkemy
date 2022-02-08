@@ -12,21 +12,21 @@ export default function Home() {
         <h1>WELCOME</h1>
         <Search setInfo={setInfo} />
       </div>
-        <Row xs={1} md={2} lg={3} sytle={{ textAling: "center" }}>
-          {info.map((item) => {
-            return (
-              <Col style={{ marginTop: "2%" }}>
-                <CardSpoonacular
-                  key={item.id}
-                  name={item.title}
-                  image={item.image}
-                  caracteristicas={item.summary}
-                />
-              </Col>
-            );
-          })}
-        </Row>
-
+      <Row xs={1} md={2} lg={3} sytle={{ textAling: "center" }}>
+        {info.map((item) => {
+          return (
+            <Col style={{ marginTop: "2%" }}>
+              <CardSpoonacular
+                idRecipe={item.id}
+                key={item.id}
+                name={item.title}
+                image={item.image}
+                caracteristicas={item.summary}
+              />
+            </Col>
+          );
+        })}
+      </Row>
     </>
   );
 }

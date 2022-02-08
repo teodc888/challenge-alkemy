@@ -1,7 +1,18 @@
 import React from "react";
 import { Card, Button, Row } from "react-bootstrap";
+import { useNavigate } from "react-router";
+export default function CardSpoonacular({
+  name,
+  image,
+  caracteristicas,
+  idRecipe,
+}) {
+  const navigate = useNavigate();
 
-export default function CardSpoonacular({ name, image, caracteristicas }) {
+  const handleClick = () => {
+    navigate(`/recipe/${idRecipe}`);
+  };
+
   return (
     <>
       <Row className="justify-content-center">
@@ -10,7 +21,9 @@ export default function CardSpoonacular({ name, image, caracteristicas }) {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{caracteristicas}</Card.Text>
-            <Button variant="primary">View</Button>
+            <Button variant="primary" onClick={handleClick}>
+              View
+            </Button>
           </Card.Body>
         </Card>
       </Row>

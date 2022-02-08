@@ -5,6 +5,7 @@ import NavBar from "./controllers/navBar/navbar";
 import Container from "react-bootstrap/Container";
 import Login from "./controllers/login/login";
 import Home from "./controllers/home/home";
+import Recipe from "./controllers/recipe/recipe";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>} />
           <Route path="/home" element={<Home/>} />
+          <Route path="/recipe/:id" element={<Recipe/>} />
         </Routes>
       </Container>
     </div>
