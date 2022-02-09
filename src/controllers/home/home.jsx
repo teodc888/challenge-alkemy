@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import CardSpoonacular from "../card/card";
 import Search from "../search/search";
 import { Row, Col } from "react-bootstrap";
-export default function Home() {
+export default function Home({setMenu}) {
   const [info, setInfo] = useState([]);
 
-  console.log(info);
   return (
     <>
       <div>
@@ -15,10 +14,10 @@ export default function Home() {
       <Row xs={1} md={2} lg={3} sytle={{ textAling: "center" }}>
         {info.map((item) => {
           return (
-            <Col style={{ marginTop: "2%" }}>
+            <Col style={{ marginTop: "2%" }} key={item.id}>
               <CardSpoonacular
+                setMenu={setMenu}
                 idRecipe={item.id}
-                key={item.id}
                 name={item.title}
                 image={item.image}
                 caracteristicas={item.summary}

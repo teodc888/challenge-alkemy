@@ -1,7 +1,7 @@
 import React from "react";
 import { InputGroup, FormControl, Row, Button } from "react-bootstrap";
 
-export default function Input({name, placeholder, onChange,type, text, icono}) {
+export default function Input({name, placeholder, onChange,type, text, icono, onClick}) {
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Input({name, placeholder, onChange,type, text, icono}) {
               type={type}
             />
              {
-               icono === "true" ? <Button>{text}</Button> : null
+               icono === "true" ? <Button onClick={onClick}>{text}</Button> : null
              }
           </InputGroup>
         </Row>

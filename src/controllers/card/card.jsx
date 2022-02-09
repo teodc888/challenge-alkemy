@@ -6,11 +6,16 @@ export default function CardSpoonacular({
   image,
   caracteristicas,
   idRecipe,
+  setMenu
 }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/recipe/${idRecipe}`);
+  };
+
+  const handleClickMenu = () => {
+    setMenu(name);
   };
 
   return (
@@ -23,6 +28,9 @@ export default function CardSpoonacular({
             <Card.Text>{caracteristicas}</Card.Text>
             <Button variant="primary" onClick={handleClick}>
               View
+            </Button>
+            <Button variant="primary" style={{marginLeft:"30%"}} onClick={handleClickMenu}>
+              Menu
             </Button>
           </Card.Body>
         </Card>

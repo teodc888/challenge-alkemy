@@ -23,6 +23,8 @@ export default function Search({setInfo}) {
       )
       .then((res) => {
         setInfo(res.data.results);
+        window.localStorage.setItem("infoRecipe", JSON.stringify(res.data.results));
+
       })
       .catch((err) => {
         console.log(err);
@@ -40,6 +42,7 @@ export default function Search({setInfo}) {
           onChange={handleInputChange}
           text="Search"
           icono="true"
+          onClick={handleSubmit}
         />
       </Form>
     </>
