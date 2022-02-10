@@ -8,7 +8,7 @@ export default function Home({setMenu}) {
   return (
     <>
       <div>
-        <h1>WELCOME</h1>
+        <h1>WELCOME!!!</h1>
         <Search setInfo={setInfo} />
       </div>
       <Row xs={1} md={2} lg={3} sytle={{ textAling: "center" }}>
