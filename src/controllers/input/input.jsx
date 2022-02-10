@@ -1,7 +1,7 @@
 import React from "react";
 import { InputGroup, FormControl, Row, Button } from "react-bootstrap";
 
-export default function Input({name, placeholder, onChange,type, text, icono, onClick}) {
+export default function Input({name, placeholder, onChange,type, text, icono, onClick, value}) {
 
   return (
     <>
@@ -17,6 +17,7 @@ export default function Input({name, placeholder, onChange,type, text, icono, on
               name={name}
               onChange={onChange}
               type={type}
+              value={value}
             />
              {
                icono === "true" ? <Button onClick={onClick}>{text}</Button> : null
