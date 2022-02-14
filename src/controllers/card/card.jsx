@@ -6,7 +6,8 @@ export default function CardSpoonacular({
   image,
   caracteristicas,
   idRecipe,
-  setMenu
+  setMenu,
+  menu,
 }) {
   const navigate = useNavigate();
 
@@ -15,9 +16,14 @@ export default function CardSpoonacular({
   };
 
   const handleClickMenu = () => {
-    setMenu(name);
+    const change = [
+      ...menu,
+      {name, image, caracteristicas, idRecipe}
+    ]
+    setMenu(change);
   };
 
+  //holas
   return (
     <>
       <Row className="justify-content-center">

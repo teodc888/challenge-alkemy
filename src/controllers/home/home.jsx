@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CardSpoonacular from "../card/card";
 import Search from "../search/search";
 import { Row, Col } from "react-bootstrap";
-export default function Home({setMenu}) {
+export default function Home({ menu, setMenu }) {
   const [info, setInfo] = useState([]);
 
   return (
@@ -16,6 +16,7 @@ export default function Home({setMenu}) {
           return (
             <Col style={{ marginTop: "2%" }} key={item.id}>
               <CardSpoonacular
+                menu={menu}
                 setMenu={setMenu}
                 idRecipe={item.id}
                 name={item.title}

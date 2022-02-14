@@ -24,7 +24,7 @@ export default function Recipe() {
   return (
     <>
       <Row className="justify-content-center">
-        <Card style={{ width: "60%" }}>
+        <Card style={{ width: "60%", marginTop:"2%" }}>
           <Card.Img variant="top" src={recipe.image} />
           <Card.Body>
             <Card.Title>{recipe.title}</Card.Title>

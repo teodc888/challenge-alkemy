@@ -38,9 +38,9 @@ export default function Login() {
           icon: "success",
           button: "OK",
         })
-        setTimeout(()=>{
-          window.location.reload();
-        },4000)
+         setTimeout(()=>{
+           window.location.reload();
+         },250)
       })
       .catch((err) => {
         console.log(err);
