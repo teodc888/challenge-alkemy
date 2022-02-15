@@ -30,7 +30,6 @@ export default function Login() {
     axios
       .post("http://challenge-react.alkemy.org/", input)
       .then((res) => {
-        console.log(res.data.token);
         window.localStorage.setItem("token", res.data.token);
         alert({
           title: "Success",
@@ -44,7 +43,6 @@ export default function Login() {
       })
       .catch((err) => {
         console.log(err);
-        console.log("No entro");
         setInput({
           email: "",
           password: "",

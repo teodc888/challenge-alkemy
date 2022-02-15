@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, Button, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import swal from "sweetalert";
+
 export default function CardSpoonacular({
   name,
   image,
@@ -8,20 +10,33 @@ export default function CardSpoonacular({
   idRecipe,
   setMenu,
   menu,
+  opcion,
+  handleDelete,
 }) {
   const navigate = useNavigate();
+
+  const alert = () => {
+    swal({
+      title: "Add",
+      text: "Added successfully",
+      icon: "success",
+      button: "OK",
+    });
+  };
+
+
 
   const handleClick = () => {
     navigate(`/recipe/${idRecipe}`);
   };
 
   const handleClickMenu = () => {
-    const change = [
-      ...menu,
-      {name, image, caracteristicas, idRecipe}
-    ]
+    const change = [...menu, { name, image, caracteristicas, idRecipe }];
     setMenu(change);
+    alert();
   };
+
+
 
   //holas
   return (
@@ -35,9 +50,23 @@ export default function CardSpoonacular({
             <Button variant="primary" onClick={handleClick}>
               View
             </Button>
-            <Button variant="primary" style={{marginLeft:"30%"}} onClick={handleClickMenu}>
-              Menu
-            </Button>
+            {opcion === "true" ? (
+              <Button
+                variant="primary"
+                style={{ marginLeft: "30%" }}
+                onClick={handleClickMenu}
+              >
+                Menu
+              </Button>
+            ) : (
+              <Button
+                variant="primary"
+                style={{ marginLeft: "30%" }}
+                onClick={handleDelete}
+              >
+                Delete
+              </Button>
+            )}
           </Card.Body>
         </Card>
       </Row>

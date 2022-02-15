@@ -6,7 +6,7 @@ export default function Error() {
     useEffect(() => {
         setTimeout(() =>{
             navigate("/")
-        },1000)
+        },5000)
         
     }, []);
   return (

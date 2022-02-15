@@ -19,7 +19,6 @@ export default function Recipe() {
       });
   }, [id]);
 
-  console.log(recipe);
 
   return (
     <>

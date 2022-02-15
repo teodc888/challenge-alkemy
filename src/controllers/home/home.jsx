@@ -22,6 +22,7 @@ export default function Home({ menu, setMenu }) {
                 name={item.title}
                 image={item.image}
                 caracteristicas={item.summary}
+                opcion="true"
               />
             </Col>
           );
