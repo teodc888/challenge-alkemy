@@ -12,6 +12,15 @@ export default function CardSpoonacular({
   menu,
   opcion,
   handleDelete,
+  diets,
+  vegetarian,
+  vegarian,
+  setVegarian,
+  notVegarian,
+  setNotVegarian,
+  pricePerServing,
+  readyInMinutes,
+  healthScore
 }) {
   const navigate = useNavigate();
 
@@ -23,20 +32,64 @@ export default function CardSpoonacular({
       button: "OK",
     });
   };
+  const alertError = () => {
+    swal({
+      title: "lleno",
+      text: "se lleno el menu",
+      icon: "error",
+      button: "OK",
+    });
+  };
 
-
+  const alertErrorV = () => {
+    swal({
+      title: "Error",
+      text:
+        "Usted tiene " +
+        vegarian +
+        " platos vegetarianos" +
+        " y " +
+        notVegarian +
+        " platos no vegetarianos",
+      icon: "error",
+      button: "OK",
+    });
+  };
 
   const handleClick = () => {
     navigate(`/recipe/${idRecipe}`);
   };
 
   const handleClickMenu = () => {
-    const change = [...menu, { name, image, caracteristicas, idRecipe }];
-    setMenu(change);
-    alert();
+    console.log(menu.length, "cantidad");
+    if (menu.length <= 3) {
+      if (vegetarian === true && vegarian <= 1) {
+        console.log("vegetarian");
+        setVegarian(vegarian + 1);
+
+        const change = [
+          ...menu,
+          { name, image, caracteristicas, idRecipe, diets, pricePerServing, readyInMinutes, healthScore },
+        ];
+        setMenu(change);
+        alert();
+      } else if (vegetarian === false && notVegarian <= 1) {
+        console.log("No vegetarian");
+        setNotVegarian(notVegarian + 1);
+        const change = [
+          ...menu,
+          { name, image, caracteristicas, idRecipe, diets, pricePerServing, readyInMinutes,healthScore },
+        ];
+        setMenu(change);
+        alert();
+      } else {
+        alertErrorV();
+      }
+    } else {
+      console.log("lleno");
+      alertError();
+    }
   };
-
-
 
   //holas
   return (
@@ -46,7 +99,11 @@ export default function CardSpoonacular({
           <Card.Img variant="top" src={image} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
-            <Card.Text>{caracteristicas}</Card.Text>
+            {opcion === "true" ? (
+              <Card.Text>{diets}</Card.Text>
+            ) : (
+              <Card.Text>{caracteristicas}</Card.Text>
+            )}
             <Button variant="primary" onClick={handleClick}>
               View
             </Button>

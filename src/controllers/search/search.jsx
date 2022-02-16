@@ -19,7 +19,7 @@ export default function Search({setInfo}) {
     e.preventDefault();
     axios
       .get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${input.search}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${input.search}&addRecipeInformation=true`
       )
       .then((res) => {
         setInfo(res.data.results);
